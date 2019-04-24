@@ -14,16 +14,27 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import { IndexNotLoggedComponent } from './index-not-logged/index-not-logged.component';
+import { IndexLoggedComponent } from './index-logged/index-logged.component';
 
 const routes = [
-  { path: '', component: RegisterComponent }
+  { path: '', component: IndexNotLoggedComponent, children: [
+    {path: '', component: RegisterComponent, outlet: 'register'},
+    {path: '', component: LoginComponent, outlet: 'login'}
+  ] },
+  { path: '', component: IndexLoggedComponent, outlet: 'logged' },
+  { path: '**', redirectTo: ''}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    IndexNotLoggedComponent,
+    IndexLoggedComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,7 @@ const routes = [
     BrowserAnimationsModule, NoopAnimationsModule,
     MatButtonModule, MatCheckboxModule,
     MatInputModule, MatIconModule,
-    MatToolbarModule
+    MatToolbarModule, MatGridListModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

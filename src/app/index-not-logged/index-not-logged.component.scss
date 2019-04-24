@@ -1,0 +1,28 @@
+@import "../app.component.scss";
+
+mat-grid-tile.img{
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+mat-grid-tile.logged{
+
+    div.form{
+        padding: 20px;
+        border: 1px solid $lightGray;
+    }
+
+    .changeOutlet{
+        cursor: default;
+        margin-top: 20px;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid $lightGray;
+        color: $gray;
+
+        span{
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+}

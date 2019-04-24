@@ -1,9 +1,3 @@
-<mat-toolbar color="primary" *ngIf="result != invalid">
-  <mat-toolbar-row>
-    {{result.message}}
-  </mat-toolbar-row>
-</mat-toolbar>
-
 <form (ngSubmit)="submit()" [formGroup]="registerForm">
   <div>
     <mat-form-field>
@@ -24,10 +18,11 @@
     <mat-form-field>
       <input [type]="hidePassword ? 'password' : 'text'" matInput placeholder="Password" formControlName="password">
       <mat-icon matSuffix class="visibility-icon" (click)="visibilityPassword()">
-        {{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+        {{hidePassword ? 'visibility' : 'visibility_off'}}
+      </mat-icon>
     </mat-form-field>
   </div>
   <div>
-    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <button mat-raised-button color="primary" type="submit">Register</button>
   </div>
 </form>

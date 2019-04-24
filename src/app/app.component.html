@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+
+<div>
+    <div *ngIf="!logged else elseBlock">
+        <router-outlet></router-outlet>
+    </div>
+    <ng-template #elseBlock>
+        <router-outlet name="logged"></router-outlet>
+    </ng-template>
+</div>

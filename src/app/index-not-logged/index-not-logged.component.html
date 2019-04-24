@@ -1,0 +1,28 @@
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile class="img">
+    <div>
+      <img src="https://consumer-img.huawei.com/content/dam/huawei-cbg-campaign/2018/mate20-pro/en/img/frame.png"
+        alt="">
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile class="logged">
+    <div>
+      <div *ngIf="outletValue; else elseBlock">
+        <div class="form">
+            <router-outlet name="login"></router-outlet>
+        </div>
+        <div class="changeOutlet">
+          You do not have an account ? <span (click)="changeOutletValue()">Register</span>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div class="form">
+            <router-outlet name="register"></router-outlet>
+        </div>
+        <div class="changeOutlet">
+          You have an account ? <span (click)="changeOutletValue()">Login</span>
+        </div>
+      </ng-template>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

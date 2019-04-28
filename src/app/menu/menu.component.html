@@ -1,0 +1,16 @@
+<div class="menu">
+  <div class="logo">
+    <div class="icons8-instagram"></div>
+    <span class="title">
+      InstaFake
+    </span>
+  </div>
+  <div>
+    <div *ngIf="logged; else elseBlock">
+      <mat-icon routerLink="/{{username}}">person</mat-icon>
+    </div>
+    <ng-template #elseBlock>
+      nothing
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+@import '../app.component.scss';
+
+.information{
+    border-bottom: 1px solid $border-color;
+    height: 150px;
+    margin-left: 300px;
+    margin-right: 300px;
+    .img{
+        margin-top: 100px;
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius:  50%   ;
+            -webkit-border-radius:  50%   ;
+            -moz-border-radius:  50%   ;
+            -ms-border-radius:  50%   ;
+            -o-border-radius:  50%   ;
+            border: 1px solid $border-color;
+        }
+    }
+
+    .information-user{
+        position: absolute;
+        left: 500px;
+        top: 140px;
+        .username{
+            font-size: 20px;
+        }
+    }
+}

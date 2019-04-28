@@ -1,0 +1,41 @@
+@import '../app.component.scss';
+
+
+
+.menu{
+    height: 77px;
+    border-bottom: 1px solid $border-color;
+
+    .logo{
+        cursor: pointer;
+        position: absolute;
+        left: 115px;
+        top: 27px;
+
+        .icons8-instagram { 
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCA1MCA1MCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij4gICAgPHBhdGggc3R5bGU9ImxpbmUtaGVpZ2h0Om5vcm1hbDt0ZXh0LWluZGVudDowO3RleHQtYWxpZ246c3RhcnQ7dGV4dC1kZWNvcmF0aW9uLWxpbmU6bm9uZTt0ZXh0LWRlY29yYXRpb24tc3R5bGU6c29saWQ7dGV4dC1kZWNvcmF0aW9uLWNvbG9yOiMwMDA7dGV4dC10cmFuc2Zvcm06bm9uZTtibG9jay1wcm9ncmVzc2lvbjp0Yjtpc29sYXRpb246YXV0bzttaXgtYmxlbmQtbW9kZTpub3JtYWwiIGQ9Ik0gMTYgMyBDIDguODMyNDgzOSAzIDMgOC44MzI0ODM5IDMgMTYgTCAzIDM0IEMgMyA0MS4xNjc1MTYgOC44MzI0ODM5IDQ3IDE2IDQ3IEwgMzQgNDcgQyA0MS4xNjc1MTYgNDcgNDcgNDEuMTY3NTE2IDQ3IDM0IEwgNDcgMTYgQyA0NyA4LjgzMjQ4MzkgNDEuMTY3NTE2IDMgMzQgMyBMIDE2IDMgeiBNIDE2IDUgTCAzNCA1IEMgNDAuMDg2NDg0IDUgNDUgOS45MTM1MTYxIDQ1IDE2IEwgNDUgMzQgQyA0NSA0MC4wODY0ODQgNDAuMDg2NDg0IDQ1IDM0IDQ1IEwgMTYgNDUgQyA5LjkxMzUxNjEgNDUgNSA0MC4wODY0ODQgNSAzNCBMIDUgMTYgQyA1IDkuOTEzNTE2MSA5LjkxMzUxNjEgNSAxNiA1IHogTSAzNyAxMSBBIDIgMiAwIDAgMCAzNSAxMyBBIDIgMiAwIDAgMCAzNyAxNSBBIDIgMiAwIDAgMCAzOSAxMyBBIDIgMiAwIDAgMCAzNyAxMSB6IE0gMjUgMTQgQyAxOC45MzY3MTIgMTQgMTQgMTguOTM2NzEyIDE0IDI1IEMgMTQgMzEuMDYzMjg4IDE4LjkzNjcxMiAzNiAyNSAzNiBDIDMxLjA2MzI4OCAzNiAzNiAzMS4wNjMyODggMzYgMjUgQyAzNiAxOC45MzY3MTIgMzEuMDYzMjg4IDE0IDI1IDE0IHogTSAyNSAxNiBDIDI5Ljk4MjQwNyAxNiAzNCAyMC4wMTc1OTMgMzQgMjUgQyAzNCAyOS45ODI0MDcgMjkuOTgyNDA3IDM0IDI1IDM0IEMgMjAuMDE3NTkzIDM0IDE2IDI5Ljk4MjQwNyAxNiAyNSBDIDE2IDIwLjAxNzU5MyAyMC4wMTc1OTMgMTYgMjUgMTYgeiIgZm9udC13ZWlnaHQ9IjQwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIHdoaXRlLXNwYWNlPSJub3JtYWwiIG92ZXJmbG93PSJ2aXNpYmxlIj48L3BhdGg+PC9zdmc+') 50% 50% no-repeat;
+            background-size: 100%; 
+        }
+
+        .title{
+            position: absolute;
+            margin-left: 10px;
+            font-size: 20px;
+            border-left: 1.5px solid black;
+            padding-left: 10px;
+            top: -2px !important;
+        }
+    }
+    
+    
+    mat-icon{
+        cursor: pointer;
+        position: absolute;
+        right: 50px;
+        top: 25px;
+        font-size: 35px;
+    }
+}

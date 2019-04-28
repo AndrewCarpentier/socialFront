@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   hidePassword = true;
   loginForm;
-  constructor(private fb: FormBuilder, private service: DataService) { }
+  constructor(private fb: FormBuilder, private service: DataService, private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
       }).subscribe((result: any) => {
         if (result.success) {
           this.service.loginStockage(result);
+          this.router.navigate(['connected']);
         }
       });
     }

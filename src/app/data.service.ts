@@ -32,6 +32,11 @@ export class DataService {
     }
   }
 
+  logout = () => {
+    this.removeLocalStorage('id');
+    this.removeLocalStorage('username');
+  }
+
   private setLocalStorage = (key, value) => {
     if (typeof value === 'string') {
       localStorage.setItem(key, value);
@@ -40,7 +45,11 @@ export class DataService {
     }
   }
 
-  private getLocalStorage = (key) => {
-    return JSON.parse(localStorage.getItem(key)) === undefined ? '' : JSON.parse(localStorage.getItem(key));
+  getLocalStorage = (key) => {
+    return localStorage.getItem(key);
+  }
+
+  private removeLocalStorage = (key) => {
+    localStorage.removeItem(key);
   }
 }

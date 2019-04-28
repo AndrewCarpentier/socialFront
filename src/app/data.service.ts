@@ -18,6 +18,10 @@ export class DataService {
     return this.http.post(this.host + '/login', user);
   }
 
+  getUser = (username) => {
+    return this.http.get(this.host + '/getusername?username=' + username);
+  }
+
   loginStockage = (result) => {
     this.setLocalStorage('id', result.id);
     this.setLocalStorage('username', result.username);

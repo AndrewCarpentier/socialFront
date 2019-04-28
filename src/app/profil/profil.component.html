@@ -2,11 +2,25 @@
 
 <div class="information">
     <div class="img">
-        <img src="https://scontent-cdt1-1.cdninstagram.com/vp/78f89c4a95e9e58f459287cb65b22308/5D60F2FE/t51.2885-19/s320x320/44827296_470117676845027_7320749362072518656_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com" alt="">
+        <div *ngIf="user.urlImgProfil != null; else elseBlock">
+                <img src="{{user.urlImgProfil}}" alt="">
+        </div>
+        <ng-template #elseBlock>
+            <img src="https://scontent-lhr3-1.cdninstagram.com/vp/78bb2593e5a5077421172e6829e62a33/5D5480F1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-lhr3-1.cdninstagram.com" alt="">
+        </ng-template>
+        
     </div>
     <div class="information-user">
         <div class="username">
-            {{username}}
+            {{user.username}}
+        </div>
+        <div class="list-count-principal">
+            <span class="list-count">{{user.post?.length || 0}} publications </span> 
+            <span class="list-count">{{user.subscriber?.length || 0}} abonnés</span> 
+            <span class="list-count">{{user.subscription?.length || 0}} abonnement</span>
+        </div>
+        <div class="description">
+            {{user.description | slice:0:450}}
         </div>
     </div>
 </div>

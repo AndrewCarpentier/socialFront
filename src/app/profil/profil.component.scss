@@ -2,7 +2,7 @@
 
 .information{
     border-bottom: 1px solid $border-color;
-    height: 150px;
+    height: 165px;
     margin-left: 300px;
     margin-right: 300px;
     .img{
@@ -26,5 +26,19 @@
         .username{
             font-size: 20px;
         }
+
+        .list-count-principal{
+            margin-top: 15px;
+
+            .list-count{
+                margin-right: 30px;
+            }
+        }
+
+        .description{
+            margin-top: 25px;
+            width: 65%;
+        }
+        
     }
 }

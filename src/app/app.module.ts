@@ -20,6 +20,7 @@ import { IndexNotLoggedComponent } from './index-not-logged/index-not-logged.com
 import { IndexLoggedComponent } from './index-logged/index-logged.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfilComponent } from './profil/profil.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes = [
   {
@@ -29,6 +30,7 @@ const routes = [
     ]
   },
   { path: 'connected', component: IndexLoggedComponent },
+  { path: 'logout', component: LogoutComponent },
   { path: ':username', component: ProfilComponent },
   { path: '**', redirectTo: '' }
 ];
@@ -42,6 +44,7 @@ const routes = [
     IndexLoggedComponent,
     MenuComponent,
     ProfilComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

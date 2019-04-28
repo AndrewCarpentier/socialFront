@@ -10,11 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfilComponent implements OnInit {
 
   logged = false;
-  username;
+  user;
 
   constructor(private service: DataService, private route: ActivatedRoute) {
     route.params.subscribe((param) => {
-      this.username = param.username;
+      service.getUser(param.username).subscribe((newUser) => {
+        console.log(newUser);
+        this.user = newUser;
+      });
     });
   }
 

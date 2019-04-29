@@ -1,0 +1,22 @@
+@import '../app.component.scss';
+
+.img-list{
+    margin-top: 60px;
+
+    img{
+        width: 200px;
+        height: 200px;
+    }
+
+    mat-icon{
+        position: absolute;
+        top: 12px;
+        font-size: 34px;
+        color: $dark-red;
+        right: 50px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

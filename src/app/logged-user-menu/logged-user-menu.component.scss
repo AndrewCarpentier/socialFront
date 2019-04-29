@@ -1,0 +1,17 @@
+@import '../app.component.scss';
+
+.user-menu{
+    border-bottom: 1px solid $border-color;
+    mat-icon{
+        font-size: 30px;
+    }
+
+    mat-grid-tile{
+        border-right: 1px solid $border-color;
+
+        &:hover{
+            cursor: pointer;
+            color: $primary;
+        }
+    }
+}

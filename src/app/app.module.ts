@@ -21,6 +21,8 @@ import { IndexLoggedComponent } from './index-logged/index-logged.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfilComponent } from './profil/profil.component';
 import { LogoutComponent } from './logout/logout.component';
+import { LoggedUserMenuComponent } from './logged-user-menu/logged-user-menu.component';
+import { AddFilesComponent } from './add-files/add-files.component';
 
 const routes = [
   {
@@ -29,7 +31,11 @@ const routes = [
       { path: '', component: LoginComponent, outlet: 'login' }
     ]
   },
-  { path: 'connected', component: IndexLoggedComponent },
+  {
+    path: 'connected', component: IndexLoggedComponent, children: [
+      { path: 'add', component: AddFilesComponent }
+    ]
+  },
   { path: 'logout', component: LogoutComponent },
   { path: ':username', component: ProfilComponent },
   { path: '**', redirectTo: '' }
@@ -45,6 +51,8 @@ const routes = [
     MenuComponent,
     ProfilComponent,
     LogoutComponent,
+    LoggedUserMenuComponent,
+    AddFilesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-add-files',
@@ -7,52 +8,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFilesComponent implements OnInit {
 
-  imgSrc;
-  imgSrc2;
-  imgSrc3;
-  imgSrc4;
-  imgSrc5;
+  imgSrc = [];
 
-  constructor() { }
+  constructor(private service: DataService) { }
 
   ngOnInit() {
   }
 
   change = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      if(this.imgSrc5 == null && this.imgSrc4 != null)
-      this.imgSrc5 = reader.result;
-      if(this.imgSrc4 == null && this.imgSrc3 != null)
-      this.imgSrc4 = reader.result;
-      if(this.imgSrc3 == null && this.imgSrc2 != null)
-      this.imgSrc3 = reader.result;
-      if(this.imgSrc2 == null && this.imgSrc != null)
-      this.imgSrc2 = reader.result;
-      if(this.imgSrc == null)
-      this.imgSrc = reader.result;
-      
+    for (let f of e.target.files) {
+      const file = f;
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (this.imgSrc.length < 5) {
+          this.imgSrc.push({url: reader.result, f: file});
+        }
+      };
+      reader.readAsDataURL(file);
     }
-
-    reader.readAsDataURL(file);
   }
 
   remove = (e) => {
-    if(this.imgSrc == e){
-      this.imgSrc = null;
+    for (let i = 0 ; i < this.imgSrc.length ; i++) {
+      if (this.imgSrc[i] === e) {
+        this.imgSrc.splice(i, 1);
+        break;
+      }
     }
-    if(this.imgSrc2 == e){
-      this.imgSrc = null;
+  }
+
+  upload = () => {
+    let formData = new FormData();
+
+    for (let img of this.imgSrc) {
+      formData.append('files', img.f);
     }
-    if(this.imgSrc3 == e){
-      this.imgSrc = null;
-    }
-    if(this.imgSrc4 == e){
-      this.imgSrc = null;
-    }
-    if(this.imgSrc5 == e){
-      this.imgSrc = null;
-    }
+    console.log(this.imgSrc);
+    this.service.upload(formData).subscribe((result) => {
+      console.log(result);
+    });
+
   }
 }

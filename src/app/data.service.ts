@@ -22,6 +22,11 @@ export class DataService {
     return this.http.get(this.host + '/getusername?username=' + username);
   }
 
+  upload = (files) => {
+    console.log(files);
+    return this.http.post(this.host + '/upload', files);
+  }
+
   loginStockage = (result) => {
     this.setLocalStorage('id', result.id);
     this.setLocalStorage('username', result.username);

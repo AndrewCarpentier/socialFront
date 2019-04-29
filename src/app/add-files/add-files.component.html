@@ -1,36 +1,22 @@
 <div>
-  <div>
-    <input type="file" accept="image/*" (change)="change($event)">
+  <div class="add-input">
+    <mat-grid-list cols="2" rowHeight="100">
+      <mat-grid-tile>
+          <input type="file" id="file" multiple accept="image/*" (change)="change($event)">
+          <label for="file">Choose a file</label>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button color="primary" (click)="upload()">
+          Upload
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
   <div class="img-list">
-    <mat-grid-list cols="5" rowHeight="250">
-      <mat-grid-tile>
-        <img [src]="imgSrc || 'https://www.transparenttextures.com/patterns/asfalt-light.png'" alt="">
-        <mat-icon *ngIf="imgSrc != null" (click)="remove(imgSrc)">
-          remove_circle
-        </mat-icon>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <img [src]="imgSrc2 || 'https://www.transparenttextures.com/patterns/asfalt-light.png'" alt="">
-        <mat-icon *ngIf="imgSrc2 != null" (click)="remove(imgSrc2)">
-          remove_circle
-        </mat-icon>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <img [src]="imgSrc3 || 'https://www.transparenttextures.com/patterns/asfalt-light.png'" alt="">
-        <mat-icon *ngIf="imgSrc3 != null" (click)="remove(imgSrc3)">
-          remove_circle
-        </mat-icon>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <img [src]="imgSrc4 || 'https://www.transparenttextures.com/patterns/asfalt-light.png'" alt="">
-        <mat-icon *ngIf="imgSrc4 != null" (click)="remove(imgSrc4)">
-          remove_circle
-        </mat-icon>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <img [src]="imgSrc5 || 'https://www.transparenttextures.com/patterns/asfalt-light.png'" alt="">
-        <mat-icon *ngIf="imgSrc5 != null" (click)="remove(imgSrc5)">
+    <mat-grid-list cols="5" rowHeight="250" >
+      <mat-grid-tile *ngFor="let img of imgSrc">
+        <img [src]="img.url || 'https://www.transparenttextures.com/patterns/asfalt-light.png'" alt="">
+        <mat-icon (click)="remove(img)">
           remove_circle
         </mat-icon>
       </mat-grid-tile>

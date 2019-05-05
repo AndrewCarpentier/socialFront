@@ -1,6 +1,6 @@
 <app-menu logged={{logged}}></app-menu>
 
-<div class="information">
+<div class="information" *ngIf="user != null">
     <div class="img">
         <div *ngIf="user.urlImgProfil != null; else elseBlock">
                 <img src="{{user.urlImgProfil}}" alt="">
@@ -12,7 +12,9 @@
     </div>
     <div class="information-user">
         <div class="username">
-            {{user.username}}
+            {{user.username}} 
+            <button mat-raised-button color="primary" *ngIf="!logged">Subscribe</button> 
+            <button mat-raised-button routerLink="/logout" *ngIf="logged">Logout</button>
         </div>
         <div class="list-count-principal">
             <span class="list-count">{{user.post?.length || 0}} publications </span> 

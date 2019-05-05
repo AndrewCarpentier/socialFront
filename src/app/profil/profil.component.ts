@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profil',
@@ -12,13 +12,27 @@ export class ProfilComponent implements OnInit {
   logged = false;
   user;
 
-  constructor(private service: DataService, private route: ActivatedRoute) {
+  constructor(private service: DataService, private route: ActivatedRoute, private router: Router) {
+
     route.params.subscribe((param) => {
-      service.getUser(param.username).subscribe((newUser) => {
-        console.log(newUser);
+      service.getUser(param.username).subscribe((newUser: any) => {
+        if (newUser.id === 0) {
+          router.navigate(['/']);
+        }
         this.user = newUser;
+
+        console.log(newUser.id);
+        if (service.verificationLogged()) {
+          if (service.getLocalStorage('id') == newUser.id) {
+            this.logged = true;
+          }
+
+          
+        }
+
       });
     });
+
   }
 
   ngOnInit() {

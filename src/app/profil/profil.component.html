@@ -13,7 +13,8 @@
     <div class="information-user">
         <div class="username">
             {{user.username}} 
-            <button mat-raised-button color="primary" *ngIf="!logged">Subscribe</button> 
+            <button mat-raised-button color="primary" *ngIf="!logged && !subscribed" (click)="subscribe()">Subscribe</button>
+            <button mat-raised-button color="accent" *ngIf="!logged && subscribed" (click)="unsubscribe()">Unsubscribe</button>
             <button mat-raised-button routerLink="/logout" *ngIf="logged">Logout</button>
         </div>
         <div class="list-count-principal">

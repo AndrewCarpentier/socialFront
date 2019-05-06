@@ -43,7 +43,7 @@ export class AddFilesComponent implements OnInit {
     for (let img of this.imgSrc) {
       formData.append('files', img.f);
     }
-    console.log(this.imgSrc);
+    
     this.service.upload(formData).subscribe((result) => {
       console.log(result);
     });

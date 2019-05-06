@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 @Injectable()
@@ -22,9 +22,23 @@ export class DataService {
     return this.http.get(this.host + '/getusername?username=' + username);
   }
 
+  subscribe = (ids) => {
+    return this.http.post(this.host + '/subscribe', ids);
+  }
+
+  unsubscribe = (ids) => {
+    return this.http.post(this.host + '/unsubscribe', ids);
+  }
+
+  verifSubscribed = (ids) => {
+    return this.http.post(this.host + '/verifSubscribed', ids)
+  }
+
   upload = (files) => {
-    console.log(files);
-    return this.http.post(this.host + '/upload', files);
+    let id = this.getLocalStorage("id");
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'multipart/form-data');
+    return this.http.post(this.host + '/upload', JSON.stringify({files: files, id: id}), {headers: headers});
   }
 
   loginStockage = (result) => {

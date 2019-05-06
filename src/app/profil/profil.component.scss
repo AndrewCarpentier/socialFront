@@ -17,6 +17,27 @@
             -o-border-radius:  50%   ;
             border: 1px solid $border-color;
         }
+
+        input#profil-img{
+            position: absolute;
+            width: 0;
+            left: 400px;
+        }
+
+        label{
+            position: relative;
+            .change-icon{
+                position: relative;
+                color: $material-primary;
+                top: -80px;
+                right: 30px;
+    
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        
     }
 
     .information-user{

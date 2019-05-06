@@ -34,6 +34,12 @@ export class DataService {
     return this.http.post(this.host + '/verifSubscribed', ids)
   }
 
+  uploadProfilImg = (uPI) => {
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'multipart/form-data');
+    return this.http.post(this.host + '/uploadProfilImg', uPI, {headers: headers});
+  }
+
   upload = (files) => {
     let id = this.getLocalStorage("id");
     const headers = new HttpHeaders();

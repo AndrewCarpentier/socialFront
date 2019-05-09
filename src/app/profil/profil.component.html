@@ -3,15 +3,15 @@
 <div class="information" *ngIf="user != null">
     <div class="img">
         <div *ngIf="user.urlImgProfil != null; else elseBlock">
-            <img src="{{user.urlImgProfil}}" alt="">
+            <img [src]="user.urlImgProfil" alt="">
         </div>
         <ng-template #elseBlock>
             <img src="https://scontent-lhr3-1.cdninstagram.com/vp/78bb2593e5a5077421172e6829e62a33/5D5480F1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-lhr3-1.cdninstagram.com"
                 alt="">
         </ng-template>
-
+        
         <input type="file" id="profil-img" accept="image/*" (change)="AddProfilImage($event)">
-        <label for="profil-img">
+        <label for="profil-img" *ngIf="logged">
             <mat-icon class="change-icon">
                 edit
             </mat-icon>
@@ -27,9 +27,9 @@
             <button mat-raised-button routerLink="/logout" *ngIf="logged">Logout</button>
         </div>
         <div class="list-count-principal">
-            <span class="list-count">{{user.post?.length || 0}} publications </span>
-            <span class="list-count">{{user.subcribers?.length || 0}} abonnés</span>
-            <span class="list-count">{{user.subscriptions?.length || 0}} abonnement</span>
+            <span class="list-count">{{user.post?.length || 0}} post </span>
+            <span class="list-count">{{user.subcribers?.length || 0}} subcribers</span>
+            <span class="list-count">{{user.subscriptions?.length || 0}} subscriptions</span>
         </div>
         <div class="description">
             {{user.description | slice:0:450}}

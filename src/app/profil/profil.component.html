@@ -4,18 +4,25 @@
     <div class="img">
         <div *ngIf="user.urlImgProfil != null; else elseBlock">
             <img [src]="user.urlImgProfil" alt="">
+
+            <input type="file" id="profil-img" accept="image/*" (change)="AddProfilImage($event)">
+            <label for="profil-img" *ngIf="logged">
+                <mat-icon class="change-icon">
+                    edit
+                </mat-icon>
+            </label>
         </div>
         <ng-template #elseBlock>
             <img src="https://scontent-lhr3-1.cdninstagram.com/vp/78bb2593e5a5077421172e6829e62a33/5D5480F1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-lhr3-1.cdninstagram.com"
                 alt="">
+
+            <input type="file" id="profil-img" accept="image/*" (change)="AddProfilImage($event)">
+            <label for="profil-img" *ngIf="logged">
+                <mat-icon class="change-icon">
+                    edit
+                </mat-icon>
+            </label>
         </ng-template>
-        
-        <input type="file" id="profil-img" accept="image/*" (change)="AddProfilImage($event)">
-        <label for="profil-img" *ngIf="logged">
-            <mat-icon class="change-icon">
-                edit
-            </mat-icon>
-        </label>
     </div>
     <div class="information-user">
         <div class="username">

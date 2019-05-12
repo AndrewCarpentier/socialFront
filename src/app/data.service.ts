@@ -40,11 +40,11 @@ export class DataService {
     return this.http.post(this.host + '/uploadProfilImg?id=' + uPI.id, uPI.file, {headers: headers});
   }
 
-  upload = (files) => {
+  upload = (upload) => {
     let id = this.getLocalStorage("id");
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'multipart/form-data');
-    return this.http.post(this.host + '/upload?id=' + id, files, {headers: headers});
+    return this.http.post(this.host + '/upload/' + id + '/?description=' + upload.description , upload.files, {headers: headers});
   }
 
   loginStockage = (result) => {

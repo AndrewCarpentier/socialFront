@@ -12,6 +12,14 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
+
+  <div class="container">
+    <mat-form-field>
+      <textarea matInput (change)="changeDescription($event)"></textarea>
+    </mat-form-field>
+  </div>
+    
+
   <div class="img-list">
     <mat-grid-list cols="5" rowHeight="250" >
       <mat-grid-tile *ngFor="let img of imgSrc">

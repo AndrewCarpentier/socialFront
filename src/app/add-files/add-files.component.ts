@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-files',
@@ -9,8 +10,9 @@ import { DataService } from '../data.service';
 export class AddFilesComponent implements OnInit {
 
   imgSrc = [];
+  description;
 
-  constructor(private service: DataService) { }
+  constructor(private service: DataService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -28,6 +30,10 @@ export class AddFilesComponent implements OnInit {
     }
   }
 
+  changeDescription = (e) => {
+    this.description = e.target.value;
+  }
+
   remove = (e) => {
     for (let i = 0 ; i < this.imgSrc.length ; i++) {
       if (this.imgSrc[i] === e) {
@@ -43,9 +49,8 @@ export class AddFilesComponent implements OnInit {
     for (let img of this.imgSrc) {
       formData.append('files', img.f);
     }
-    
-    this.service.upload(formData).subscribe((result) => {
-      console.log(result);
+    this.service.upload({files: formData, description: this.description}).subscribe((result) => {
+      this.router.navigate(['/']);
     });
 
   }

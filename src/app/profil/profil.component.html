@@ -43,3 +43,13 @@
         </div>
     </div>
 </div>
+
+<div class="posts">
+    <mat-grid-list cols="3" rowHeight="293px">
+        <mat-grid-tile *ngFor="let p of user?.posts">
+            <div class="post">
+                <img [src]="p.imgs[0]" alt="" class="post-img">            
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

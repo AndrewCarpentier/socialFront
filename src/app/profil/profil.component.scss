@@ -68,3 +68,29 @@
         
     }
 }
+
+.posts{
+
+    margin-left: 15%;
+    margin-right: 15%;
+
+    .post{
+
+        margin-top: 90px;
+        height: 293px;
+        width: 293px;
+        border: 1px solid $border-color;
+
+        .post-img{
+            margin-top: 20%;
+            width: 293px;
+            height: auto;
+            cursor: pointer;
+        }
+    }
+
+    
+
+
+}
+

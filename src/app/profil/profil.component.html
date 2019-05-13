@@ -34,7 +34,7 @@
             <button mat-raised-button routerLink="/logout" *ngIf="logged">Logout</button>
         </div>
         <div class="list-count-principal">
-            <span class="list-count">{{user.post?.length || 0}} post </span>
+            <span class="list-count">{{user.posts?.length || 0}} post </span>
             <span class="list-count">{{user.subcribers?.length || 0}} subcribers</span>
             <span class="list-count">{{user.subscriptions?.length || 0}} subscriptions</span>
         </div>

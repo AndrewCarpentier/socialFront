@@ -56,9 +56,7 @@ export class ProfilComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
     this.service.uploadProfilImg({file: formData, id: this.service.getLocalStorage('id')}).subscribe((result) => {
-      this.service.getUser(this.user.username).subscribe((newUser) => {
-        this.user = newUser;
-      });
+      this.user.urlImgProfil = result;
     });
   }
 

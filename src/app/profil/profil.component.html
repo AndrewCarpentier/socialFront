@@ -8,7 +8,7 @@
             <input type="file" id="profil-img" accept="image/*" (change)="AddProfilImage($event)">
             <label for="profil-img" *ngIf="logged">
                 <mat-icon class="change-icon">
-                    edit
+                    add_circle
                 </mat-icon>
             </label>
         </div>
@@ -19,7 +19,7 @@
             <input type="file" id="profil-img" accept="image/*" (change)="AddProfilImage($event)">
             <label for="profil-img" *ngIf="logged">
                 <mat-icon class="change-icon">
-                    edit
+                    add_circle
                 </mat-icon>
             </label>
         </ng-template>
@@ -45,11 +45,26 @@
 </div>
 
 <div class="posts">
-    <mat-grid-list cols="3" rowHeight="293px">
+    <mat-grid-list cols="3" rowHeight="400px">
         <mat-grid-tile *ngFor="let p of user?.posts">
-            <div class="post">
-                <img [src]="p.imgs[0]" alt="" class="post-img">            
+            <div class="postInfoAll">
+                <div class="postInfo comment">
+                    <mat-icon>
+                        chat_bubble
+                    </mat-icon>
+                    {{p.comments?.length || 0}}
+                </div>
+                <div class="postInfo like">
+                    <mat-icon>
+                        favorite
+                    </mat-icon>
+                    {{p.likes?.length || 0}}
+                </div>
+
             </div>
+            <mat-card class="post">
+                <img mat-card-image [src]="p.imgs[0]">
+            </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

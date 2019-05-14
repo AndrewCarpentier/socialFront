@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 import { IndexNotLoggedComponent } from './index-not-logged/index-not-logged.component';
 import { IndexLoggedComponent } from './index-logged/index-logged.component';
@@ -62,7 +63,8 @@ const routes = [
     BrowserAnimationsModule, NoopAnimationsModule,
     MatButtonModule, MatCheckboxModule,
     MatInputModule, MatIconModule,
-    MatToolbarModule, MatGridListModule
+    MatToolbarModule, MatGridListModule,
+    MatCardModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

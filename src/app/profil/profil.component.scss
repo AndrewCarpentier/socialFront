@@ -76,10 +76,19 @@
 
     .post{
 
-        margin-top: 90px;
         height: 293px;
         width: 293px;
-        border: 1px solid $border-color;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+       
+
+        img{
+            width: 325px;
+            height: 325px;
+        }
 
         .post-img{
             margin-top: 20%;
@@ -89,7 +98,34 @@
         }
     }
 
-    
+    .postInfo{
+        display: flex;
+        align-items: center;
+    }
+
+    .comment{
+        margin-left: 120px;
+    }
+
+    .like{
+        margin-left: 10px;
+    }
+
+    .postInfoAll{
+        display: flex;
+        position: absolute;
+        z-index: 9999;
+        color: $primary;
+        background-color: $lightGray;
+        opacity: 0;
+        height: 325px;
+        width: 325px;
+
+        &:hover{
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    }
 
 
 }

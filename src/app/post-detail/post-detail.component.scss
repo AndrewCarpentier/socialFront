@@ -1,0 +1,18 @@
+.close{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+#principal{
+    height: 350px;
+    widows: auto;
+}
+
+p{
+    height: 100px;
+}

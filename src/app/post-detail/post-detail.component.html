@@ -1,0 +1,30 @@
+<div *ngIf="post != null && user != null">
+    <mat-card>
+        <mat-card-header>
+          <img *ngIf="user.urlImgProfil != null; else elseBlock" mat-card-avatar [src]="user.urlImgProfil">
+          <ng-template #elseBlock>
+              <img mat-card-avatar src="https://scontent-lhr3-1.cdninstagram.com/vp/78bb2593e5a5077421172e6829e62a33/5D5480F1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-lhr3-1.cdninstagram.com"
+              alt="">
+          </ng-template>
+          
+          <mat-card-title>{{user.username}}</mat-card-title>
+        </mat-card-header>
+        <img id="principal" mat-card-image [src]="post.imgs[0]">
+        <mat-card-content>
+          <p>
+            {{post.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+        </mat-card-actions>
+        <mat-card-footer>
+          {{post.date}}
+        </mat-card-footer>
+      </mat-card>
+      <div class="close" (click)="close()">
+        <mat-icon>
+          close
+        </mat-icon>
+      </div>
+</div>

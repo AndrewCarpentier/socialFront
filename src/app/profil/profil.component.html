@@ -44,9 +44,16 @@
     </div>
 </div>
 
+<div *ngIf="displayDetailPost" class="postDetail">
+    <app-post-detail [post]="post" [user]="user" (closePost)="closePost()"></app-post-detail>
+</div>
+
 <div class="posts">
     <mat-grid-list cols="3" rowHeight="400px">
-        <mat-grid-tile *ngFor="let p of user?.posts">
+        <mat-grid-tile *ngFor="let p of user?.posts" (click)="displayPost($event)">
+            <div class="id" [id]="p.id">
+
+            </div>
             <div class="postInfoAll">
                 <div class="postInfo comment">
                     <mat-icon>

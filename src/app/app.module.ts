@@ -24,6 +24,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { LogoutComponent } from './logout/logout.component';
 import { LoggedUserMenuComponent } from './logged-user-menu/logged-user-menu.component';
 import { AddFilesComponent } from './add-files/add-files.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 const routes = [
   {
@@ -54,6 +55,7 @@ const routes = [
     LogoutComponent,
     LoggedUserMenuComponent,
     AddFilesComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,

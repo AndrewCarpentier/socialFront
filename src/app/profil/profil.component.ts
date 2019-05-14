@@ -10,8 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProfilComponent implements OnInit {
 
   logged = false;
-  user;
+  user: any;
   subscribed = false;
+  displayDetailPost = false;
+  post;
 
   constructor(private service: DataService, private route: ActivatedRoute, private router: Router) {
     route.params.subscribe((param) => {
@@ -57,6 +59,22 @@ export class ProfilComponent implements OnInit {
     this.service.uploadProfilImg({file: formData, id: this.service.getLocalStorage('id')}).subscribe((result) => {
       this.user.urlImgProfil = result;
     });
+  }
+
+  displayPost = (e) => {
+
+    for (let i = 0 ; i < this.user.posts.length ; i++) {
+      if (this.user.posts[i].id == e.target.getAttribute('id')) {
+        this.post = this.user.posts[i];
+        break;
+      }
+    }
+
+    this.displayDetailPost = true;
+  }
+
+  closePost = () => {
+    this.displayDetailPost = false;
   }
 
 }

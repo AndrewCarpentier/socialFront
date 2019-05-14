@@ -40,6 +40,8 @@
         
     }
 
+    
+
     .information-user{
         position: absolute;
         left: 500px;
@@ -111,22 +113,46 @@
         margin-left: 10px;
     }
 
+    .id{
+        height: 325px;
+        width: 325px;
+        position: absolute;
+        z-index: 9999;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        &:hover + .postInfoAll{
+            opacity: 0.5;
+        }
+    }
+
+    
+
     .postInfoAll{
         display: flex;
         position: absolute;
-        z-index: 9999;
         color: $primary;
+        z-index: 9998;
         background-color: $lightGray;
         opacity: 0;
         height: 325px;
         width: 325px;
-
-        &:hover{
-            opacity: 0.5;
-            cursor: pointer;
-        }
     }
 
 
 }
 
+
+.postDetail{
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999;
+}
